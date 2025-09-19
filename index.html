@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emotion101</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button class="emotion-button" onclick="handleClick()">Emotion 101</button>
+  
+  <button class="additional-text hidden" onclick="additionalTextClick()">
+    Struggling to put feelings into words? You're not alone. Here, we make it simple to learn the basics of emotional communication—one step at a time. Practical, easy, and a bit of fun along the way. Ready to start speaking your mind? Let’s go.
+  </button>
+  
+  <div class="content-wrapper level-1 hidden">
+    <div class="level-text">Level 1: The ABCs of Emotions</div>
+    <div class="instruction-text">Click on the option that matches the tone of this message</div>
+    <div class="message-text">"Oh, you forgot my birthday again. No big deal, it’s not like it’s important or anything."</div>
+    <div class="emotion-options">
+      <button class="emotion-option" onclick="handleEmotionSelection('Sarcastic', 1)">Sarcastic</button>
+      <button class="emotion-option" onclick="handleEmotionSelection('Happy', -1)">Happy</button>
+      <button class="emotion-option" onclick="handleEmotionSelection('Sad', -1)">Sad</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper level-2 hidden">
+    <div class="level-text">Level 2: Advanced Emotions</div>
+    <div class="instruction-text">What’s the real emotion behind this statement?</div>
+    <div class="message-text">"I don’t need your help, but thanks for offering. I’ve got it under control."</div>
+    <div class="emotion-options">
+      <button class="emotion-option" onclick="handleEmotionSelection2('Grateful', -1)">Grateful</button>
+      <button class="emotion-option" onclick="handleEmotionSelection2('Defensive', 1)">Defensive</button>
+      <button class="emotion-option" onclick="handleEmotionSelection2('Resentful', -1)">Resentful</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper level-3 hidden">
+    <div class="level-text">Level 3: Conflicts for Dummies</div>
+    <div class="instruction-text">You’re in a conflict, choose the least defensive response</div>
+    <div class="message-text">"You never help out around here!"</div>
+    <div class="emotion-options">
+      <button class="emotion-option" onclick="handleEmotionSelection3('I’ve been busy, that’s not fair', -1)">"I’ve been busy, that’s not fair"</button>
+      <button class="emotion-option" onclick="handleEmotionSelection3('I hear you, and I want to be more helpful', 1)">"I hear you, and I want to be more helpful"</button>
+      <button class="emotion-option" onclick="handleEmotionSelection3('I do help out, you don’t notice', -1)">"I do help out, you don’t notice"</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper level-4 hidden">
+    <div class="level-text">Level 4: Mastering Communication</div>
+    <div class="instruction-text">Acknowledge emotions without overreacting or avoiding conversation</div>
+    <div class="message-text">"I just don’t feel like I’m being heard." </div>
+    <div class="emotion-options">
+      <button class="emotion-option" onclick="handleEmotionSelection4('I’m sorry. What can I do to listen better?', 1)">"I’m sorry. What can I do to listen better?"</button>
+      <button class="emotion-option" onclick="handleEmotionSelection4('I’m sure it’s not a big deal.', -1)">"I’m sure it’s not a big deal."</button>
+      <button class="emotion-option" onclick="handleEmotionSelection4('Well, you’re just not expressing yourself clearly.', -1)">"Well, you’re just not expressing yourself clearly."</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper level-5 hidden">
+    <div class="level-text">Level 5: Emotional Mastery</div>
+    <div class="instruction-text">Express your feelings responsibly, without putting the weight on someone else</div>
+    <div class="message-text">"I feel hurt when you don’t consider my perspective."</div>
+    <div class="emotion-options">
+      <button class="emotion-option" onclick="handleEmotionSelection5('I feel hurt because you don’t listen to me.', -1)">
+        "I feel hurt because you don’t listen to me."
+      </button>
+      <button class="emotion-option" onclick="handleEmotionSelection5('I feel hurt, and I’d like to talk about it calmly.', 1)">
+        "I feel hurt, and I’d like to talk about it calmly."
+      </button>
+      <button class="emotion-option" onclick="handleEmotionSelection5('I feel hurt, but I guess that’s just how it is.', -1)">
+        "I feel hurt, but I guess that’s just how it is."
+      </button>
+    </div>
+  </div>
+
+<div class="content-wrapper level-6 hidden">
+  <div class="score-text">Your Score: <span id="score">0</span></div>
+  
+  <!-- New Text Box -->
+  <div class="message-box">
+    With this information, do what you will
+  </div>
+  
+ <!-- Clickable Text -->
+  <a href="https://www.google.com/" class="clickable-text" target="_self">Silje</a>
+
+</div>
+
+
+  <script>
+    let score = 0;
+
+    // Emotion 101 Button Click Handler
+    function handleClick() {
+      const button = document.querySelector('.emotion-button');
+      const additionalText = document.querySelector('.additional-text');
+      
+      button.classList.add('hidden');
+      setTimeout(() => {
+        button.style.display = 'none';
+        additionalText.classList.remove('hidden');
+        additionalText.classList.add('show');
+      }, 500);
+    }
+
+    // Additional Text Button Click Handler
+    function additionalTextClick() {
+      const additionalText = document.querySelector('.additional-text');
+      const level1Wrapper = document.querySelector('.content-wrapper.level-1');
+      
+      additionalText.classList.add('hidden');
+      setTimeout(() => {
+        level1Wrapper.classList.remove('hidden');
+        level1Wrapper.classList.add('show');
+      }, 500);
+    }
+
+    // Emotion Option Selection Handler (Level 1)
+    function handleEmotionSelection(emotion, points) {
+      score += points;
+      updateScore();
+      const level1Wrapper = document.querySelector('.content-wrapper.level-1');
+      const level2Wrapper = document.querySelector('.content-wrapper.level-2');
+      
+      level1Wrapper.classList.add('fade-out');
+      setTimeout(() => {
+        level1Wrapper.classList.remove('show');
+        level1Wrapper.classList.add('hidden');
+        level1Wrapper.classList.remove('fade-out');
+        
+        level2Wrapper.classList.remove('hidden');
+        level2Wrapper.classList.add('show');
+      }, 500);
+    }
+
+    // Emotion Option Selection Handler (Level 2)
+    function handleEmotionSelection2(emotion, points) {
+      score += points;
+      updateScore();
+      const level2Wrapper = document.querySelector('.content-wrapper.level-2');
+      const level3Wrapper = document.querySelector('.content-wrapper.level-3');
+      
+      level2Wrapper.classList.add('fade-out');
+      setTimeout(() => {
+        level2Wrapper.classList.remove('show');
+        level2Wrapper.classList.add('hidden');
+        level2Wrapper.classList.remove('fade-out');
+        
+        level3Wrapper.classList.remove('hidden');
+        level3Wrapper.classList.add('show');
+      }, 500);
+    }
+
+    // Emotion Option Selection Handler (Level 3)
+    function handleEmotionSelection3(emotion, points) {
+      score += points;
+      updateScore();
+      const level3Wrapper = document.querySelector('.content-wrapper.level-3');
+      const level4Wrapper = document.querySelector('.content-wrapper.level-4');
+      
+      level3Wrapper.classList.add('fade-out');
+      setTimeout(() => {
+        level3Wrapper.classList.remove('show');
+        level3Wrapper.classList.add('hidden');
+        level3Wrapper.classList.remove('fade-out');
+        
+        level4Wrapper.classList.remove('hidden');
+        level4Wrapper.classList.add('show');
+      }, 500);
+    }
+
+    // Emotion Option Selection Handler (Level 4)
+    function handleEmotionSelection4(emotion, points) {
+      score += points;
+      updateScore();
+      const level4Wrapper = document.querySelector('.content-wrapper.level-4');
+      const level5Wrapper = document.querySelector('.content-wrapper.level-5');
+      
+      level4Wrapper.classList.add('fade-out');
+      setTimeout(() => {
+        level4Wrapper.classList.remove('show');
+        level4Wrapper.classList.add('hidden');
+        level4Wrapper.classList.remove('fade-out');
+        
+        level5Wrapper.classList.remove('hidden');
+        level5Wrapper.classList.add('show');
+      }, 500);
+    }
+
+    // Emotion Option Selection Handler (Level 5)
+    function handleEmotionSelection5(emotion, points) {
+      score += points;
+      updateScore();
+      const level5Wrapper = document.querySelector('.content-wrapper.level-5');
+      const level6Wrapper = document.querySelector('.content-wrapper.level-6');
+
+      level5Wrapper.classList.add('fade-out');
+      setTimeout(() => {
+        level5Wrapper.classList.remove('show');
+        level5Wrapper.classList.add('hidden');
+        level5Wrapper.classList.remove('fade-out');
+
+        level6Wrapper.classList.remove('hidden');
+        level6Wrapper.classList.add('show');
+      }, 500);
+    }
+
+    // Update Score Display
+    function updateScore() {
+      document.getElementById('score').textContent = score;
+    }
+  </script>
+</body>
+</html>
+

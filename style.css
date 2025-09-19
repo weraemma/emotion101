@@ -1,0 +1,405 @@
+/* Fonts */
+@font-face {
+  font-family: "YoungBaroque";
+  src: url("https://cdn.glitch.global/603971a3-243c-4500-8cf6-a3bc91f489b0/youngbaroquestd-webfont.woff2?v=1736935938515")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "FunkisTrial";
+  src: url("https://cdn.glitch.global/603971a3-243c-4500-8cf6-a3bc91f489b0/funkistrial-normal-webfont.woff2?v=1736941188454")
+    format("woff2");
+}
+
+/* General Styles */
+body {
+  margin: 0;
+  background-color: black;
+  color: hotpink;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Emotion 101 Button */
+.emotion-button {
+  font-family: "YoungBaroque", sans-serif;
+  font-size: 15rem;
+  padding: 1rem 2rem;
+  background: none;
+  color: hotpink;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.emotion-button.hidden {
+  opacity: 0;
+}
+
+/* Additional Text Button */
+.additional-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: hotpink;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+}
+
+.additional-text.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.additional-text.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Level 1, 2, and 3 Content Wrappers */
+.content-wrapper {
+  margin: 0;
+  background-color: black;
+  color: hotpink;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  padding: 0 20px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.content-wrapper.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.content-wrapper.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Level 1 Text */
+.level-text {
+  font-family: "YoungBaroque", sans-serif;
+  font-size: 8rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: -5rem;
+  position: relative;
+}
+
+/* Instruction Text */
+.instruction-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 0rem;
+  position: relative;
+}
+
+/* Message Text */
+.message-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 8rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+/* Emotion Options */
+.emotion-options {
+  font-family: "FunkisTrial", sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.emotion-option {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  padding: 0;
+  background: none;
+  color: hotpink;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.emotion-option:hover {
+  color: #f7a4cd;
+}
+
+/* Level 2 Adjustments */
+.level-2 .level-text {
+  font-family: "YoungBaroque", sans-serif;
+  font-size: 8rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: -4rem;
+  position: relative;
+}
+
+/* Level 3 Adjustments */
+.level-3 .level-text {
+  font-family: "YoungBaroque", sans-serif;
+  font-size: 8rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: -6rem;
+  position: relative;
+}
+
+.level-3 .instruction-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 0rem;
+  position: relative;
+}
+
+.level-3 .message-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 8rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.level-3 .emotion-options {
+  font-family: "FunkisTrial", sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.level-3 .emotion-option {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  padding: 0;
+  background: none;
+  color: hotpink;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.level-3 .emotion-option:hover {
+  color: #f7a4cd;
+}
+
+.level-4 .instruction-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 0rem;
+  position: relative;
+}
+
+.level-4 .message-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 8rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.level-4 .emotion-options {
+  font-family: "FunkisTrial", sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.level-4 .emotion-option {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  padding: 0;
+  background: none;
+  color: hotpink;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.level-4 .emotion-option:hover {
+  color: #f7a4cd;
+}
+
+/* Level 5 Adjustments */
+.level-5 .level-text {
+  font-family: "YoungBaroque", sans-serif;
+  font-size: 8rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: -6rem;
+  position: relative;
+}
+
+.level-5 .instruction-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 0rem;
+  position: relative;
+}
+
+.level-5 .message-text {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 2.5rem;
+  text-align: center;
+  color: hotpink;
+  margin-top: 8rem;
+  width: 100%;
+  max-width: 800px;
+  margin-left: 20px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.level-5 .emotion-options {
+  font-family: "FunkisTrial", sans-serif;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 5rem;
+}
+
+.level-5 .emotion-option {
+  font-family: "FunkisTrial", sans-serif;
+  font-size: 1.5rem;
+  padding: 0;
+  background: none;
+  color: hotpink;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.level-5 .emotion-option:hover {
+  color: #f7a4cd;
+}
+
+/* Level 6 Adjustments */
+.level-6 {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Ensure that FunkisTrial font is loaded */
+@font-face {
+  font-family: "FunkisTrial";
+  src: url("https://cdn.glitch.global/603971a3-243c-4500-8cf6-a3bc91f489b0/funkistrial-normal-webfont.woff2?v=1736941188454") format("woff2");
+}
+
+/* Level 6 Adjustments */
+.level-6 {
+  background-color: black;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.level-6.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.level-6 .score-text {
+  font-family: "YoungBaroque", sans-serif;
+  font-size: 12rem; /* Adjust the font size as needed */
+  color: hotpink;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.level-6 .message-box {
+  font-family: "FunkisTrial", sans-serif; /* Apply Funkistrial font */
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  color: hotpink;
+  text-align: center;
+  margin-top: 20px;
+  padding: 1rem;
+  background-color: black; /* Match the page background */
+  border: 0px solid hotpink; /* Optional: Add border for styling */
+  width: 80%;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+
+/* Style for the clickable text */
+.clickable-text {
+  font-family: "YoungBaroque", sans-serif; /* Young Baroque font */
+  font-size: 3rem; /* Adjust the font size */
+  color: hotpink;
+  text-decoration: none; /* Remove underline */
+  cursor: pointer;
+  margin-top: 10rem;
+}
+
+.clickable-text:hover {
+  color: #f7a4cd; /* Change text color on hover */
+}
